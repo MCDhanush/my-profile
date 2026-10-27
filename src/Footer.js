@@ -1,25 +1,102 @@
-import EmailIcon from '@mui/icons-material/Email';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { useState } from "react";
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+const contacts = [
+  {
+    label: "GitHub",
+    href: "https://github.com/MCDhanush",
+    icon: <GitHubIcon fontSize="small" />,
+  },
+  {
+    label: "Email",
+    href: "mailto:dhanushmc93@gmail.com",
+    icon: <EmailIcon fontSize="small" />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/dhanush-mc-28598a202/",
+    icon: <LinkedInIcon fontSize="small" />,
+  },
+];
 
 export function Footer() {
-  return (<>
-    <div className='fo-he' id='f'>
-      <div className='fo-sti'>
-        <h1 className='abt-inn'>Contact With me</h1>
-        <p href="https://github.com/" className='fo-p'><GitHubIcon /> &nbsp; GitHub</p>
-        <p href="mailto:dhanushmc93@gmail.com" className='fo-p'><EmailIcon /> &nbsp; Mail to</p>
-        <p href="https://www.linkedin.com/in/dhanush-mc-28598a202/" className='fo-p'><svg className='lin-sv' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>  &nbsp; Linkedin</p>
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setStatus(
+      "Thanks for reaching out! This form does not send directly from the site yet. Please use the email link and include your message."
+    );
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+    setStatus("");
+  };
+
+  return (
+    <footer className="section footer" id="contact">
+      <div className="section-shell footer-grid">
+        <div className="card-surface">
+          <h2>Let&apos;s connect</h2>
+          <p>
+            Have a project idea or collaboration in mind? Reach out directly and
+            I&apos;ll get back to you.
+          </p>
+          <ul className="contact-list">
+            {contacts.map((contact) => (
+              <li key={contact.label}>
+                <a href={contact.href} target="_blank" rel="noreferrer">
+                  {contact.icon}
+                  <span>{contact.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="card-surface">
+          <h3>Send a message</h3>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
+            <p className="form-status" role="status" aria-live="polite">
+              {status}
+            </p>
+          </form>
+        </div>
       </div>
-      <div className='fo-for'>
-        <h1 className='abt-inn'>Say Hi</h1>
-        <form class="contact-form">
-          <input type="text" name="Name" id="name" placeholder="Name *" required="" value="" /><br />
-          <input type="email" name="Email" id="email" placeholder="Email *" required="" value="" /><br />
-          <textarea name="Message" id="message" cols="30" rows="5" placeholder="Message *" required=""></textarea><br />
-          <div><button className='fo-bu' type="submit">Send <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg></button><span class="text-danger"></span></div>
-        </form>
-      </div>
-    </div>
-  </>);
+    </footer>
+  );
 }
