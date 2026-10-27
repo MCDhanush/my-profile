@@ -1,72 +1,68 @@
 import "./App.css";
-// import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./Header";
-import { Stickers } from "./Stickers";
-import { Link, NavLink } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import WebIcon from "@mui/icons-material/Web";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import EmailIcon from "@mui/icons-material/Email";
 import { About } from "./About";
+import { Stickers } from "./Stickers";
 import { Projects } from "./Projects";
 import { Footer } from "./Footer";
-// import ListIcon from "@mui/icons-material/List";
-// import CloseIcon from "@mui/icons-material/Close";
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 function App() {
-  const [navopen, setNavopen] = useState("");
-  // const [navclose, setClose] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const closeMenu = () => setMenuOpen(false);
+    window.addEventListener("resize", closeMenu);
+    return () => window.removeEventListener("resize", closeMenu);
+  }, []);
+
   return (
-    <div className="App">
-      <div className="nav-bac">
-        <nav>
-          <img
-            className="title sign-img"
-            src="https://see.fontimg.com/api/renderfont4/z8xjG/eyJyIjoiZnMiLCJoIjoxNzUsInciOjEyNTAsImZzIjoxNDAsImZnYyI6IiM4MTI4MjAiLCJiZ2MiOiIjRkZGRkZGIiwidCI6MX0/RGhhbnVzaA/darlington-demo.png"
-            alt="skill-img"
-          />
-          <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul className={menuOpen ? "open" : ""}>
-            <li>
-              <a className="nav-font" href="#h" to="/about">
-                Home
-              </a>
-            </li>
-            <li>
-              <a to="/services" href="#a">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#s" to="/contact">
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#p" to="/contact">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#f" to="/contact">
-                Contact
-              </a>
-            </li>
+    <div className="app-shell">
+      <header className="site-nav-wrap">
+        <nav className="site-nav" aria-label="Primary">
+          <a className="brand" href="#home" aria-label="Go to home section">
+            <span className="brand-mark" aria-hidden="true">
+              DM
+            </span>
+            <span className="brand-text">Dhanush MC</span>
+          </a>
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            aria-label="Toggle navigation menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <ul id="site-menu" className={`menu-list ${menuOpen ? "open" : ""}`}>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} onClick={() => setMenuOpen(false)}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
+      </header>
+      <main>
         <Header />
         <About />
         <Stickers />
         <Projects />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

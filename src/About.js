@@ -1,22 +1,32 @@
 export function About() {
   return (
-    <div className="abt-tt" id="a">
-    <div className='abt-head'>
-      <div><img className="abt-img" src='https://artstribune.com/wp-content/uploads/2022/02/front-end-developer.png' /></div>
-      <div className="abt-cnt">
-        <h2>To <a className="abt-inn">Know</a> who <a className="abt-inn">I</a> Am...</h2>
-        <h4>Hi everyone I'm <a className="abt-inn">Dhanush</a></h4>
-        <p>
-        <a className="abt-inn">Highly Creative</a> and <a className="abt-inn">dependable Entry level</a> 
-        <a className="abt-inn inna"> MERN Stack</a> Web Developer
-        </p>
-        <p>Dedicated to driving innovation with the ability to follow industry 
-          and <a className="abt-inn ">technological trends</a>, 
-          and <a className="abt-inn inna">facilitating early adoption of innovations</a>.</p>
-        <p>I certainly assure that I will be a good fit for the organizational culture.</p>
-       
+    <section className="section" id="about">
+      <div className="section-shell two-column">
+        <div className="card-surface">
+          <h2>About</h2>
+          <p>
+            Hi, I&apos;m <strong>Dhanush MC</strong>, a full-stack developer focused
+            on MERN applications and modern web experiences.
+          </p>
+          <p>
+            I enjoy turning ideas into usable products, combining clean frontend
+            interfaces with backend APIs and data-driven workflows.
+          </p>
+          <p>
+            I stay current with industry and technology trends to build reliable,
+            maintainable solutions.
+          </p>
+        </div>
+        <div className="card-surface about-highlight">
+          <h3>What I focus on</h3>
+          <ul>
+            <li>Building responsive, accessible React interfaces</li>
+            <li>Designing REST APIs with Node.js and Express.js</li>
+            <li>Creating CRUD-first applications with MongoDB</li>
+            <li>Shipping polished UI with Bootstrap and Material UI</li>
+          </ul>
+        </div>
       </div>
-      </div>
-    </div>
+    </section>
   );
 }
