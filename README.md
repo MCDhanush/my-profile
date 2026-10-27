@@ -1,6 +1,6 @@
 # Dhanush MC - Developer Profile
 
-A polished one-page React portfolio built with Create React App to showcase Dhanush MC as a full-stack MERN developer.
+A polished one-page React portfolio built with Create React App to showcase Dhanush MC as a full-stack developer.
 
 ## Tech Stack
 
@@ -8,11 +8,12 @@ A polished one-page React portfolio built with Create React App to showcase Dhan
 - CSS (custom responsive styling)
 - Material UI Icons
 - react-typical (hero role animation)
+- GSAP (micro-interactions and motion)
 
 ## Local Development
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 npm start
 ```
 
@@ -29,13 +30,15 @@ npm run build
 Update these files to personalize content:
 
 - `src/App.js` -> Navigation items
-- `src/Header.js` -> Hero text, CTA links, social links
-- `src/About.js` -> About copy and focus points
-- `src/Stickers.js` -> Skills categories and chips
-- `src/Projects.js` -> Project list, descriptions, tags, links
-- `src/Footer.js` -> Contact links and form messaging
+- `src/Header.js` -> Hero text, social links, resume CTA, animation behavior
+- `src/About.js` -> About copy and company highlights
+- `src/Stickers.js` -> Skills categories, chips, and icons
+- `src/Projects.js` -> Project list, descriptions, tags, and links
+- `src/ProjectList.js` -> Project card actions and preview behavior
+- `src/Footer.js` -> Contact links and mailto form experience
+- `public/assets/Dhanush_MC_Resume.pdf` -> Downloadable resume file
 
 ## Notes
 
-- This is a client-side profile page with no backend form submission.
-- Contact form provides clear guidance to reach out through email/social links.
+- This is a client-side profile page.
+- Contact form opens the user email client with prefilled details for direct outreach.

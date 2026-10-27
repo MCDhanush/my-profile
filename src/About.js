@@ -1,3 +1,7 @@
+import ApartmentIcon from "@mui/icons-material/Apartment";
+
+const experienceCompanies = ["Uniphore", "Autonom8"];
+
 export function About() {
   return (
     <section className="section" id="about">
@@ -13,8 +17,8 @@ export function About() {
             interfaces with backend APIs and data-driven workflows.
           </p>
           <p>
-            I stay current with industry and technology trends to build reliable,
-            maintainable solutions.
+            My profile includes experience across teams such as Uniphore and
+            Autonom8, with a focus on building reliable web products.
           </p>
         </div>
         <div className="card-surface about-highlight">
@@ -24,6 +28,15 @@ export function About() {
             <li>Designing REST APIs with Node.js and Express.js</li>
             <li>Creating CRUD-first applications with MongoDB</li>
             <li>Shipping polished UI with Bootstrap and Material UI</li>
+          </ul>
+          <h3 className="experience-heading">Experience</h3>
+          <ul className="company-list">
+            {experienceCompanies.map((company) => (
+              <li key={company}>
+                <ApartmentIcon fontSize="small" />
+                <span>{company}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

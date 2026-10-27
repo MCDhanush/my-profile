@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DownloadIcon from "@mui/icons-material/Download";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -27,8 +28,16 @@ export function Footer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:dhanushmc93@gmail.com?subject=${encodeURIComponent(
+      "Portfolio Contact"
+    )}&body=${body}`;
+
+    window.location.href = mailtoUrl;
     setStatus(
-      "Thanks for reaching out! This form does not send directly from the site yet. Please use the email link and include your message."
+      "Your email client was opened with your message. Please send it from there to complete contact."
     );
   };
 
@@ -57,6 +66,13 @@ export function Footer() {
               </li>
             ))}
           </ul>
+          <a
+            className="btn btn-secondary resume-btn"
+            href="/assets/Dhanush_MC_Resume.pdf"
+            download="Dhanush_MC_Resume.pdf"
+          >
+            Download Resume <DownloadIcon fontSize="small" />
+          </a>
         </div>
         <div className="card-surface">
           <h3>Send a message</h3>
@@ -89,7 +105,7 @@ export function Footer() {
               required
             />
             <button className="btn btn-primary" type="submit">
-              Submit
+              Open Email Draft
             </button>
             <p className="form-status" role="status" aria-live="polite">
               {status}

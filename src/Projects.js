@@ -4,29 +4,31 @@ const projects = [
   {
     image:
       "https://ik.imagekit.io/mim7hvkph/Screenshot__94_.png?updatedAt=1689587937349",
-    name: "Movie App",
+    name: "Syncora",
     details:
-      "A MERN application that lists movies with details like name, summary, rating, and trailer info, plus edit and delete options.",
-    link: "https://cosmic-frangipane-568756.netlify.app/movies",
+      "A MERN movie-focused application that lists films with summary, rating, trailer info, and CRUD-based management.",
+    liveLink: "https://vercel.com/mcdhanushs-projects/syncora",
+    repoLink: "https://github.com/MCDhanush/syncora",
     tags: ["React", "Node.js", "Express.js", "MongoDB", "CRUD"],
   },
   {
     image:
-      "https://ik.imagekit.io/mim7hvkph/Screenshot__93_.png?updatedAt=1689587937133",
-    name: "Admin Management",
+      "https://images.unsplash.com/photo-1559628233-100c798642d4?auto=format&fit=crop&w=1200&q=80",
+    name: "Chennai Events",
     details:
-      "A school records app where an admin team can manage teachers and students with complete CRUD functionality.",
-    link: "https://effortless-dragon-bd0989.netlify.app/",
+      "A Chennai events app focused on showcasing and managing event information with REST-driven app workflows.",
+    liveLink: "https://vercel.com/mcdhanushs-projects/chennai-events",
+    repoLink: "https://github.com/MCDhanush/chennai_events",
     tags: ["React", "REST API", "CRUD"],
   },
   {
-    image:
-      "https://ik.imagekit.io/mim7hvkph/Screenshot__92_.png?updatedAt=1689587937130",
-    name: "Classic-Furn",
+    image: "https://opengraph.githubassets.com/1/MCDhanush/pae",
+    name: "PAE",
     details:
-      "A furniture purchasing MERN project with customer login and signup entry points and full CRUD capabilities.",
-    link: "https://app.netlify.com/sites/bejewelled-kleicha-1e552d/overview",
-    tags: ["MERN", "Authentication", "CRUD"],
+      "An interactive quiz platform for creating quizzes, publishing to a marketplace, and running real-time multiplayer games.",
+    liveLink: "https://vercel.com/mcdhanushs-projects/pae",
+    repoLink: "https://github.com/MCDhanush/pae",
+    tags: ["React", "TypeScript", "Go", "MongoDB", "Realtime"],
   },
 ];
 
