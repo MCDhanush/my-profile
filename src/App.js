@@ -6,8 +6,6 @@ import { Stickers } from "./Stickers";
 import { Projects } from "./Projects";
 import { Footer } from "./Footer";
 
-
-
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },

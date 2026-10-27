@@ -1,4 +1,5 @@
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import SourceIcon from "@mui/icons-material/Source";
 import { useState } from "react";
 
 const FALLBACK_IMAGE =
@@ -20,12 +21,29 @@ export function ProjectList({ proj }) {
         <p>{proj.details}</p>
         <ul className="chip-list chip-list-project">
           {proj.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li key={tag}>
+              <span>{tag}</span>
+            </li>
           ))}
         </ul>
-        <a className="btn btn-secondary project-link" href={proj.link} target="_blank" rel="noreferrer">
-          Live Project <OpenInNewIcon fontSize="small" />
-        </a>
+        <div className="project-actions">
+          <a
+            className="btn btn-secondary project-link"
+            href={proj.repoLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Repository <SourceIcon fontSize="small" />
+          </a>
+          <a
+            className="btn btn-primary project-link"
+            href={proj.liveLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Live Project <OpenInNewIcon fontSize="small" />
+          </a>
+        </div>
       </div>
     </article>
   );
